@@ -19,10 +19,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icone.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "br.edu.univassouras"
     },
     "web": {
       "favicon": "./assets/icone.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "15709e99-19e6-4fb5-8c7d-8c37f2c4c1e9"
+      }
     }
   }
 }
