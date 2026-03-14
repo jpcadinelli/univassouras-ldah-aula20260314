@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
 import AddItem from './src/add';
 import ListItems from './src/list';
 import { v4 as uuidv4 } from 'uuid';
@@ -33,25 +33,28 @@ export default function bolinha() {
   };
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={{ uri: "https://reactnative.dev/docs/assets/p_cat1.png" }}
-        style={{ width: 200, height: 200 }}
-      />
-      <Text style={styles.sectionTitle}>Lista ToDo</Text>
-      <AddItem addItem={addItem}></AddItem>
-      <ListItems deleteItem={DeleteItem} listItems={list}></ListItems>
-      <StatusBar style="auto" />
-      <Toast
-        position='top'
-        bottomOffset={20}
-      />
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
+        <Image
+          source={{ uri: "https://reactnative.dev/docs/assets/p_cat1.png" }}
+          style={{ width: 200, height: 200 }}
+        />
+        <Text style={styles.sectionTitle}>Lista ToDo</Text>
+        <AddItem addItem={addItem}></AddItem>
+        <ListItems deleteItem={DeleteItem} listItems={list}></ListItems>
+        <StatusBar style="auto" />
+        <Toast
+          position='top'
+          bottomOffset={20}
+        />
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     marginTop: 32,
     paddingHorizontal: 24,
   },
