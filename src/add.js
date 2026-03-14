@@ -10,6 +10,7 @@ export default function addItem(props) {
         <View>
             <Text style={styles.text}>Entre com o próximo item</Text>
             <TextInput
+                value={item}
                 onChangeText={(textVal) => {
                     setItem(textVal);
                 }}
@@ -18,6 +19,7 @@ export default function addItem(props) {
             <Button
                 onPress={() => {
                     props.addItem(item);
+                    setItem('');
                     Keyboard.dismiss();
                 }}
                 title="Salvar" />
